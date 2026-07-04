@@ -1,5 +1,5 @@
 
-# OldSchoolRunescape InfernoML
+# Old School Runescape Inferno ML
 
 A reinforcement-learning agent that completes the [Inferno](https://oldschool.runescape.wiki/w/Inferno) —
 Old School RuneScape's hardest solo PvM challenge — in a tick-accurate Python simulator.
