@@ -4,15 +4,19 @@
 A reinforcement-learning agent that completes the [Inferno](https://oldschool.runescape.wiki/w/Inferno) —
 Old School RuneScape's hardest solo PvM challenge — in a tick-accurate Python simulator.
 
+Architectural decisions, reward shaping, environmental datapoints and other PPO related solutions were ideated by me and built with Claude 
+All of the contents in this repository are written by Claude apart from this paragraph.
+
 A custom PPO implementation (recurrent policy: 256-unit LSTM with residual raw-observation skip,
 512×512 actor/critic heads) is trained against a headless simulator that reproduces Inferno wave
-mechanics: NPC pathfinding, line of sight, attack cycles, prayer, pillar geometry, blob mechanics,
+mechanics: NPC pathfinding, line of sight, attack cycles, prayer, pillar geometry, NPC mechanics,
 and gear-dependent combat formulas.
 
 > **Educational / research project.** Everything here runs against an offline, self-contained
 > Python simulator. This is **not** a bot: it has no connection to the live game, performs no
 > screen reading or input automation, and is not intended for use against Old School RuneScape.
 > The interesting part is the reinforcement-learning problem, not playing the real game.
+> No model is shipped with the project.
 
 ## Demo
 
@@ -20,8 +24,23 @@ The agent clearing waves 62–64:
 
 https://github.com/user-attachments/assets/c69519ea-2961-4fc0-85cb-4cf0692bd3a1
 
-Deterministic V52 policy: one-tick prayer switches, safespotting around pillars, kill-order
-prioritization, and weapon switching between targets. ([download](media/RL_Waves_62-64.mp4), 3 MB)
+Deterministic V52 policy: the agent displays that it was learned crucial tactics, such as pillar usage, off-ticking NPC's and other high-level game play. ([download](media/RL_Waves_62-64.mp4), 3 MB)
+
+## Agent capabilities
+
+The agent can output exactly one action per tick:
+- Move
+- Attack
+- Do nothing
+
+Prayer is automatically switched through a heuristic calculation which will pray against the most dangerous threat an NPC can inflict on the next tick; as prayer switches are effective one tick later, as are all actions in OSRS.
+
+Food items and prayer drain were not simulated.
+The agent proved it can beat the challenge almost perfectly, without any food.
+
+It learned high-level tactics such as leveraging the pillar for safety, long-horizon planning and efficient kill orders when applicable and safe to do so (such as killing the Mager first).
+Every single wave of the game is purely randomized, every NPC has 12 possible spawning locations so every single wave the agent sees is "new". It has to generalize on knowledge, rather than memorize a working solution.
+LSTM allowed the agent to stay still when necessary, wait for NPC's to move to optimal positions and avoid danger more effectively than a pure MLP did.
 
 ## Results
 
