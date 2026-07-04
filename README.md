@@ -1,3 +1,4 @@
+
 # OldSchoolRunescape InfernoML
 
 A reinforcement-learning agent that completes the [Inferno](https://oldschool.runescape.wiki/w/Inferno) —
@@ -17,7 +18,7 @@ and gear-dependent combat formulas.
 
 The agent clearing waves 62–64:
 
-<video src="https://github.com/Tumeoust/OldSchoolRunescape_InfernoML/raw/main/media/RL_Waves_62-64.mp4" controls muted></video>
+https://github.com/user-attachments/assets/c69519ea-2961-4fc0-85cb-4cf0692bd3a1
 
 Deterministic V52 policy: one-tick prayer switches, safespotting around pillars, kill-order
 prioritization, and weapon switching between targets. ([download](media/RL_Waves_62-64.mp4), 3 MB)
