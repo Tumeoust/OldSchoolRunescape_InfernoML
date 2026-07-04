@@ -1,0 +1,37 @@
+{
+  "version": "V12_phase1",
+  "checkpoint": "models/V12_phase1/inferno_gpu_w55-64_20260221_212325_61.pt",
+  "trained_steps": 3000000,
+  "episodes": 200,
+  "date": "2026-02-21",
+  "results": {
+    "35": {
+      "death_rate": 0.2,
+      "cleared_start_rate": 0.39,
+      "complete_rate": 0.0,
+      "mean_wave": 35.65,
+      "median_wave": 35
+    },
+    "46": {
+      "death_rate": 0.995,
+      "cleared_start_rate": 0.055,
+      "complete_rate": 0.0,
+      "mean_wave": 46.05,
+      "median_wave": 46
+    },
+    "55": {
+      "death_rate": 0.915,
+      "cleared_start_rate": 0.06,
+      "complete_rate": 0.0,
+      "mean_wave": 55.06,
+      "median_wave": 55
+    },
+    "63": {
+      "death_rate": 0.99,
+      "cleared_start_rate": 0.005,
+      "complete_rate": 0.0,
+      "mean_wave": 63.01,
+      "median_wave": 63
+    }
+  }
+}

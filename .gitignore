@@ -1,0 +1,19 @@
+# Model checkpoints and training runs — never committed (too large for git)
+models/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Cython build artifacts
+build/
+*.pyd
+tools/inferno_rl/simulator/*.c
+tools/inferno_rl/simulator/*.html
+
+# IDE
+.idea/
+.vscode/

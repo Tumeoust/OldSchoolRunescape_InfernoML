@@ -1,0 +1,21 @@
+# Inferno RL — dependencies for the current training stack.
+# Pure Python: the trainer (train_gpu.py) and PPO (ppo/) run on PyTorch with no
+# external RL framework. Install with:  pip install -r requirements.txt
+
+# --- Core (required) ---
+torch>=2.0.0          # custom PPO, policy/critic networks
+numpy>=1.24.0         # simulator, observation, and combat math
+gymnasium>=0.29.0     # environment API (Env, spaces)
+tensorboard>=2.14.0   # training metrics / logs
+
+# --- Optional tooling ---
+pygame>=2.5.0         # Pygame visualizers (visualizer/, debug sandbox, manual play)
+Cython>=3.0.0         # compiled simulator backends (setup_cython.py) — 3-5x speedup
+pytest>=7.0.0         # test suite (tests/)
+
+# --- Legacy (Stable-Baselines3 baseline only) ---
+# The superseded SB3 MaskablePPO path — training/train.py and visualizer/run_visual.py
+# (loading old .zip models). The current stack does NOT need these; uncomment only to
+# run the legacy trainer. Both scripts raise a clear ImportError if SB3 is missing.
+# stable-baselines3>=2.0.0
+# sb3-contrib>=2.0.0     # MaskablePPO
