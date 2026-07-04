@@ -15,8 +15,12 @@ and gear-dependent combat formulas.
 
 ## Demo
 
-**[▶ Watch the agent clear waves 62–64](media/RL_Waves_62-64.mov)** (24 MB `.mov` — Deterministic V52 policy: one-tick prayer switches, safespotting
-around pillars, kill-order prioritization, and weapon switching between targets.
+The agent clearing waves 62–64:
+
+<video src="https://github.com/Tumeoust/OldSchoolRunescape_InfernoML/raw/main/media/RL_Waves_62-64.mp4" controls muted></video>
+
+Deterministic V52 policy: one-tick prayer switches, safespotting around pillars, kill-order
+prioritization, and weapon switching between targets. ([download](media/RL_Waves_62-64.mp4), 3 MB)
 
 ## Results
 
