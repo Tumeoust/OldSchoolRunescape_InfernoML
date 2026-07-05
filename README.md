@@ -1,11 +1,18 @@
 
 # Old School Runescape Inferno ML
 
+Architectural decisions, reward shaping, environmental datapoints and other PPO related solutions were ideated by me and built with Claude. 
+All of the contents in this repository are written by Claude apart from this paragraph.
+
+I found that Claude was unable to come up with good strategies on reward terms, observations nor was it good at interpreting TensorBoard logs.
+This was my first real ML project, so there were a lot of mistakes made but in general I think I got a good feel for how AI learns, how rewards shape behavior and how to find a balance.
+There were a bunch of mistakes in reward side where the agent would find loop holes, such as hiding instead of fighting. Drafting rewards that would punish the agent after 20 ticks of idle time meant
+ the agent would come up with strategies where it could be in safety for 19 ticks and peek out for 1 tick, just in time to reset the counter to avoid the penalty and keep avoiding death penalties.
+ Combatting exploit was one of the toughest challenges. Also the agent initially had defensive bonuses during training. This meant that not every prayer missed would necessarily result in taking damage, which didn't push the agent to find the optimal strategy.
+ Reducing defence to 0 during training meant that every NPC attack would almost certainly deal damage on every missed prayer. This finally forced the agent to find an optimal solution for the problem.
+
 A reinforcement-learning agent that completes the [Inferno](https://oldschool.runescape.wiki/w/Inferno) —
 Old School RuneScape's hardest solo PvM challenge — in a tick-accurate Python simulator.
-
-Architectural decisions, reward shaping, environmental datapoints and other PPO related solutions were ideated by me and built with Claude 
-All of the contents in this repository are written by Claude apart from this paragraph.
 
 A custom PPO implementation (recurrent policy: 256-unit LSTM with residual raw-observation skip,
 512×512 actor/critic heads) is trained against a headless simulator that reproduces Inferno wave
