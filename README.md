@@ -1,6 +1,9 @@
 
 # Old School Runescape Inferno ML
 
+A reinforcement-learning agent that completes the [Inferno](https://oldschool.runescape.wiki/w/Inferno) —
+Old School RuneScape's hardest solo PvM challenge — in a tick-accurate Python simulator.
+
 Architectural decisions, reward shaping, environmental datapoints and other PPO related solutions were ideated by me and built with Claude. 
 All of the contents in this repository are written by Claude apart from this paragraph.
 
@@ -13,10 +16,9 @@ There were a bunch of mistakes in reward side where the agent would find loop ho
  Combatting exploit was one of the toughest challenges. Also the agent initially had defensive bonuses during training. This meant that not every prayer missed would necessarily result in taking damage, which didn't push the agent to find the optimal strategy.
  Reducing defence to 0 during training meant that every NPC attack would almost certainly deal damage on every missed prayer. This finally forced the agent to find an optimal solution for the problem.
 
-A reinforcement-learning agent that completes the [Inferno](https://oldschool.runescape.wiki/w/Inferno) —
-Old School RuneScape's hardest solo PvM challenge — in a tick-accurate Python simulator.
 
-A custom PPO implementation (recurrent policy: 256-unit LSTM with residual raw-observation skip,
+
+Stack: custom PPO implementation (recurrent policy: 256-unit LSTM with residual raw-observation skip,
 512×512 actor/critic heads) is trained against a headless simulator that reproduces Inferno wave
 mechanics: NPC pathfinding, line of sight, attack cycles, prayer, pillar geometry, NPC mechanics,
 and gear-dependent combat formulas.
